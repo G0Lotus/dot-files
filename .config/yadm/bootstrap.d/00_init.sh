@@ -49,3 +49,11 @@ install_paru
 install_nvim
 install_fish
 install_python
+
+if [ ! -f "$HOME/.ssh/id_rsa" ]; then
+	yadm decrypt
+fi
+
+if [[ "$(yadm remote get-url origin)" =~ "https" ]]; then
+	yadm remote set-url origin "git@github.com:G0Lotus/dot-files.git"
+fi
